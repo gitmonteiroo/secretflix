@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SecretFlix - Acesso Privado</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
+    .header {
+      background-color: #e50914;
+      padding: 20px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      padding: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .cta {
+      text-align: center;
+      margin: 30px 20px;
+    }
+    .cta h2 {
+      margin-bottom: 10px;
+    }
+    .cta #timer {
+      font-size: 24px;
+      color: #ffcc00;
+      margin-bottom: 20px;
+    }
+    .cta button {
+      padding: 15px 25px;
+      font-size: 18px;
+      background-color: #e50914;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .comments {
+      padding: 20px;
+      background-color: #111;
+    }
+    .comment {
+      border-bottom: 1px solid #333;
+      padding: 10px 0;
+    }
+    .comment strong {
+      color: #1db954;
+    }
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: #aaa;
+      padding: 20px;
+    }
+    .popup {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #222;
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-size: 14px;
+      border: 1px solid #444;
+      display: none;
+    }
+    .live-count {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 18px;
+      color: #00ff99;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">SecretFlix+</div>
+
+  <div class="gallery">
+    <img src="https://via.placeholder.com/300x450?text=Deolane" alt="Deolane">
+    <img src="https://via.placeholder.com/300x450?text=MC+Mirella" alt="Mirella">
+    <img src="https://via.placeholder.com/300x450?text=Anitta" alt="Anitta">
+    <img src="https://via.placeholder.com/300x450?text=Influencer+X" alt="Influencer X">
+  </div>
+
+  <div class="cta">
+    <h2>Conteúdo exclusivo de famosas vazou por tempo limitado!</h2>
+    <div id="timer">00:15:00</div>
+    <div class="live-count" id="viewers">124 pessoas assistindo agora</div>
+    <button onclick="window.location.href='https://seulinkpixaqui.com'">Desbloquear Conteúdo</button>
+  </div>
+
+  <div class="comments">
+    <div class="comment"><strong>Bruno C.</strong>: Mano, eu vi tudo. Não tô acreditando até agora 😳</div>
+    <div class="comment"><strong>Luana M.</strong>: Funciona mesmo! Só pagar e o acesso vem rapidão.</div>
+    <div class="comment"><strong>João R.</strong>: Paguei achando que era golpe, mas veio o link! 😍</div>
+    <div class="comment"><strong>Sabrina F.</strong>: Meu Deus, o vídeo da Mirella 😱🔥🔥🔥</div>
+    <div class="comment"><strong>Henrique L.</strong>: Já salvei tudo antes que tirem do ar kkk</div>
+  </div>
+
+  <div class="footer">
+    Este site é apenas para maiores de 18 anos. O acesso é limitado e exclusivo. Não armazenamos nenhum conteúdo diretamente em nossos servidores.
+  </div>
+
+  <div class="popup" id="popup">✅ Nova compra confirmada: João R. desbloqueou o conteúdo!</div>
+
+  <script>
+    // Timer regressivo de 15 minutos
+    let time = 15 * 60;
+    const timerEl = document.getElementById("timer");
+
+    function updateTimer() {
+      const minutes = String(Math.floor(time / 60)).padStart(2, '0');
+      const seconds = String(time % 60).padStart(2, '0');
+      timerEl.textContent = `${minutes}:${seconds}`;
+      if (time > 0) time--;
+    }
+
+    setInterval(updateTimer, 1000);
+
+    // Simular pop-up de compra a cada 30s
+    const popup = document.getElementById("popup");
+    function showPopup() {
+      popup.style.display = 'block';
+      setTimeout(() => popup.style.display = 'none', 5000);
+    }
+    setInterval(showPopup, 30000);
+
+    // Simular contador de acessos ao vivo
+    const viewers = document.getElementById("viewers");
+    let baseViewers = 124;
+    setInterval(() => {
+      baseViewers += Math.floor(Math.random() * 3 - 1);
+      viewers.textContent = `${baseViewers} pessoas assistindo agora`;
+    }, 5000);
+  </script>
+
+  <!-- Pixel oculto (exemplo genérico) -->
+  <img src="https://yourpixelurl.com/pixel?id=123" width="1" height="1" style="display:none;">
+</body>
+</html>
